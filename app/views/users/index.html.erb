@@ -1,0 +1,52 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>TeamPage</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+	<div class="container">
+	
+		<div class="clearfix"></div>
+
+			<% @users.in_groups_of(3,false) do |users| %>
+			<hr>
+	  		<!-- start: Row -->
+	  		<div class="row">
+	  		<% users.collect do |user| %>
+	  		<div class="span4">
+	    		<div class="icons-box box">
+	    			<% unless user.image_file_name == nil %>
+							<div class="span4_image">
+								<%= image_tag user.image.url(:thumb) %><br>
+								<% unless user.linked_in == nil %>
+								<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+								<script type="IN/MemberProfile" data-id=<%= user.linked_in %> data-format="hover"></script>
+								<% end %>
+							</div>
+						<% else %>
+							<div class="span4_image">
+								<%= image_tag('empty.jpg') %>
+							</div>
+						<% end %>
+						<div class="title">
+							<h3><%= user.name %></h3>
+						</div>
+						<div class="title">
+							<h6><%= user.job_description %></h6>
+						</div>
+						<p><%= truncate(user.description, length: 350) %></p>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<% end %>
+	  		</div>
+  		<% end %>
+
+		</div>
+	      		
+	<hr>      	
+	</div>
+</div>

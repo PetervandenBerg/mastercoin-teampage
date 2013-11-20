@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mastercoin</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag  "isotope.js", "jquery.imagesloaded.js", "bootstrap.js", "flexslider.js", "carousel.js", "jquery.cslider.js", "slider.js", "fancybox.js", "twitter.js", "jquery-1.8.2.js", "jquery.gmap.min.js", "custom.js" %>
+	<%= stylesheet_link_tag    "bootstrap.css", "bootstrap-responsive.css", "style.css", "parallax-slider.css" %>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Boogaloo">
+</head>
+<body style="transition:top 1s ease;-webkit-transition:top 1s ease;-moz-transition:top 1s ease;">
+	
+	<%= render 'layouts/navbar' %>
+
+	<%= yield %>
+
+	<%= render 'layouts/footer' %>
+
+</body>
+
+</html>
