@@ -24,6 +24,8 @@
 								<% unless user.linked_in == nil %>
 								<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
 								<script type="IN/MemberProfile" data-id=<%= user.linked_in %> data-format="hover"></script>
+								<% else %>
+									<%= user.linked_in %>
 								<% end %>
 							</div>
 						<% else %>
@@ -37,7 +39,7 @@
 						<div class="title">
 							<h6><%= user.job_description %></h6>
 						</div>
-						<p><%= truncate(user.description, length: 350) %></p>
+						<p><%= user.description %></p>
 						<div class="clear"></div>
 					</div>
 				</div>
@@ -46,7 +48,8 @@
   		<% end %>
 
 		</div>
-	      		
+
+	<div id="pagination"><%= will_paginate @users %></div>	
 	<hr>      	
 	</div>
 </div>
