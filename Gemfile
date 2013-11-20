@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 gem 'devise'
 gem 'simple_form'
-gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
+gem 'paperclip'
 gem 'aws-sdk', '1.9.5'
 
 group :production do
