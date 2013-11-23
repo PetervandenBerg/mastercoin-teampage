@@ -11,22 +11,34 @@
 
 /* Import Section
  *===================================================================
-@import url(image_path("icons.css"))
+@import url(image-path("icons.css"))
 
 /* Icons.
-@import url(image_path("icons-color.css"))
+@import url(image-path("icons-color.css"))
 
 /* Icons.
-@import url(image_path("social-icons.css"))
+@import url(image-path("social-icons.css"))
 
 /* Social Icons
-@import url(image_path("fancybox.css"))
+@import url(image-path("fancybox.css"))
 
 /* Fancybox
 
 html
   -webkit-font-smoothing: antialiased
 
+#flex1
+  margin-bottom: 0
+
+#comment_button
+  background: #065185
+  color: #fff
+  height: 50px
+  background-image: none
+  width: 240px
+  margin-bottom: 15px
+  font-family: Arial, sans-serif
+  font-weight: bold
 
 .span4_image
   margin-left: 10px
@@ -40,7 +52,7 @@ html
 
 body
   font-family: 'Droid Sans'
-  background: url(image_path('bg2.jpg'))
+  background: url(image-path('bg2.jpg'))
   font-size: 12px
   color: #666
   padding: 10px 20px 0px 20px
@@ -115,7 +127,7 @@ a
     margin-left: 20px
 
 #wrapper
-  background: url(image_path('bg-wrapper.jpg'))
+  background: url(image-path('bg-wrapper.jpg'))
   -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
   -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
@@ -162,7 +174,7 @@ a
   color: #fff
   text-align: center
   text-shadow: 0px 1px 0px #b63001
-  background: url(image_path('orange.png'))
+  background: url(image-path('orange.png'))
   -webkit-box-shadow: 0px 1px 1px rgba(223, 85, 38, 0.35)
   -moz-box-shadow: 0px 1px 1px rgba(223, 85, 38, 0.35)
   box-shadow: 0px 1px 1px rgba(223, 85, 38, 0.35)
@@ -362,7 +374,7 @@ header
   float: left
 
 #page-title
-  background: url(image_path('bg-wrapper.jpg'))
+  background: url(image-path('bg-wrapper.jpg'))
   position: relative
   z-index: 1
   height: 100px
@@ -449,10 +461,10 @@ header
   cursor: pointer
 
 .image-overlay-link
-  background-image: url(image_path('overlay-icon-01.png'))
+  background-image: url(image-path('overlay-icon-01.png'))
 
 .image-overlay-zoom
-  background-image: url(image_path('overlay-icon-02.png'))
+  background-image: url(image-path('overlay-icon-02.png'))
 
 .flex-video
   position: relative
@@ -587,12 +599,12 @@ html[xmlns] .slides
     -ms-transition: all 0.1s ease-in-out
     transition: all 0.1s ease-in-out
   .flex-next
-    background-image: url(image_path('slider-control-right.png'))
+    background-image: url(image-path('slider-control-right.png'))
     background-repeat: no-repeat
     background-position: 52% 50%
   .flex-prev
     margin-right: 36px
-    background-image: url(image_path('slider-control-left.png'))
+    background-image: url(image-path('slider-control-left.png'))
     background-repeat: no-repeat
     background-position: 48% 50%
     &:hover
@@ -723,11 +735,11 @@ html[xmlns] .slides
   border: 20px solid #fff !important
 
 .ico-color
-  background-image: url(image_path("glyphicons.png"))
+  background-image: url(image-path("glyphicons.png"))
   opacity: 1
 
 .mini-color
-  background-image: url(image_path("glyphicons-mini.png"))
+  background-image: url(image-path("glyphicons-mini.png"))
   opacity: 1
 
 .circle-color
@@ -944,7 +956,7 @@ input[type="button"]
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
 
 .testimonials-bg
-  background: url(image_path('testimonials-bg.png')) no-repeat
+  background: url(image-path('testimonials-bg.png')) no-repeat
   margin-top: -1px
   display: block
   width: 200px
@@ -980,13 +992,13 @@ input[type="button"]
   margin-top: -40px
 
 .mr-rotato-next
-  background: url(image_path('testimonials-right-01.png')) no-repeat 50%
+  background: url(image-path('testimonials-right-01.png')) no-repeat 50%
   background-color: #fff
   right: -1px
   z-index: 6
 
 .mr-rotato-prev
-  background: url(image_path('testimonials-left-01.png')) no-repeat 50%
+  background: url(image-path('testimonials-left-01.png')) no-repeat 50%
   background-color: #fff
   right: 21px
   -webkit-box-shadow: 3px 0px 0px 0px #fff
@@ -994,10 +1006,10 @@ input[type="button"]
   z-index: 5
 
 .mr-rotato-next:hover
-  background: url(image_path('testimonials-right-02.png')) no-repeat 50%
+  background: url(image-path('testimonials-right-02.png')) no-repeat 50%
 
 .mr-rotato-prev:hover
-  background: url(image_path('testimonials-left-02.png')) no-repeat 50%
+  background: url(image-path('testimonials-left-02.png')) no-repeat 50%
   background-color: #065185
   border-color: #065185
 
@@ -1326,7 +1338,7 @@ ol li ol.childlist .comment-des
       background: #ffeceb
 
 .loading
-  background: url(image_path('loader.gif')) no-repeat 1px
+  background: url(image-path('loader.gif')) no-repeat 1px
   height: 28px
   width: 28px
   float: left
@@ -1682,7 +1694,8 @@ li.current
 
 .widget
   padding: 10px
-  margin-top: 25px
+  margin-top: 0px
+  margin-bottom: 20px
   background: #fff
   -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
   -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
@@ -1792,35 +1805,35 @@ li.current
   margin: 5px 0
 
 .check_list li
-  background: url(image_path('list_check.png')) no-repeat 0% 50%
+  background: url(image-path('list_check.png')) no-repeat 0% 50%
   padding: 0 0 0 18px
 
 .plus_list li
-  background: url(image_path('list_plus.png')) no-repeat 0% 50%
+  background: url(image-path('list_plus.png')) no-repeat 0% 50%
   padding: 0 0 0 18px
 
 .minus_list li
-  background: url(image_path('list_minus.png')) no-repeat 0% 50%
+  background: url(image-path('list_minus.png')) no-repeat 0% 50%
   padding: 0 0 0 18px
 
 .star_list li
-  background: url(image_path('list_star.png')) no-repeat 0% 50%
+  background: url(image-path('list_star.png')) no-repeat 0% 50%
   padding: 0 0 0 16px
 
 .arrow_list li
-  background: url(image_path('list_arrow.png')) no-repeat 0% 50%
+  background: url(image-path('list_arrow.png')) no-repeat 0% 50%
   padding: 0 0 0 16px
 
 .square_list li
-  background: url(image_path('list_square.png')) no-repeat 0% 50%
+  background: url(image-path('list_square.png')) no-repeat 0% 50%
   padding: 0 0 0 16px
 
 .circle_list li
-  background: url(image_path('list_circle.png')) no-repeat 0% 50%
+  background: url(image-path('list_circle.png')) no-repeat 0% 50%
   padding: 0 0 0 16px
 
 .cross_list li
-  background: url(image_path('list_cross.png')) no-repeat 0% 50%
+  background: url(image-path('list_cross.png')) no-repeat 0% 50%
   padding: 0 0 0 16px
 
 /* Footer
@@ -1828,7 +1841,7 @@ li.current
 
 #footer-menu
   height: 50px
-  background: url(image_path('fbg.jpg'))
+  background: url(image-path('fbg.jpg'))
   -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
   -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.35)
@@ -1839,7 +1852,7 @@ li.current
     margin: 5px
     height: 36px
     width: 36px
-    background: #fcfcfc url(image_path('arrow.png'))
+    background: #fcfcfc url(image-path('arrow.png'))
     background-repeat: no-repeat
     background-position: 66% 50%
     opacity: .1
@@ -1918,7 +1931,7 @@ li.current
     height: 30px
     display: block
     background-color: rgb(6,81,133)
-    background-image: url(image_path('scroll-top-top.png'))
+    background-image: url(image-path('scroll-top-top.png'))
     background-repeat: no-repeat
     background-position: 50%
     -webkit-transition: all 0.1s ease-in-out
@@ -1931,7 +1944,7 @@ li.current
 
 #footer
   margin-top: 20px
-  background: url(image_path('fbg5.jpg'))
+  background: url(image-path('fbg5.jpg'))
   color: #fcfcfc !important
   padding: 40px 0px
   z-index: 1
@@ -2098,7 +2111,7 @@ form#newsletter
       color: #666
       font-weight: bold
   li
-    background: url(image_path('twitter.png')) no-repeat 0% 50%
+    background: url(image-path('twitter.png')) no-repeat 0% 50%
     padding-left: 40px
     line-height: 18px
     margin: 2px 0 12px 0

@@ -1,0 +1,151 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>Blog</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+	<div class="container">
+	
+	<!--start: Row -->
+		<div class="row">
+			<div class="span9">
+
+				<div class="post post-page">
+						
+					<div class="post-img picture">
+						<%= image_tag @blog.image.url %>
+					</div>
+					<span class="post-icon standard"><i class="ico-pen circle"></i></span>
+					<div class="post-content">
+						<div class="post-title">
+							<h2><%= @blog.title %></h2>
+						</div>
+						<div class="post-description">
+							<p><%= @blog.body %></p>
+						</div>
+						<div class="post-meta">
+							<span><i class="mini-ico-calendar"></i><%= @blog.created_at.to_s(:short) %></span>
+							<span><i class="mini-ico-user"></i>By <a href="#"><%= @blog.user.name %></a></span>
+						</div>
+					</div>
+				
+				</div>
+				<!-- end: Post -->
+				
+				<hr>
+				
+				<!-- start: Comments -->
+				<div class="title-out">
+					<h3>Comments <span class="comments-amount"><%= @blog.comments.count %></span></h3>
+				</div>
+				
+				<hr>
+				
+				<div class="comments-sec">
+
+					<ol class="commentlist">
+					  <% if !@comments.empty? %>
+							<% @comments.each do |comment| %>
+							<li>
+								<div class="comments">
+									<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" width="50" height="50" border="0"></div>
+									<div class="comment-des">
+									<div class="comment-by"><strong><%= comment.user.name %></strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span> <span class="date"><%= comment.created_at %></span></div>
+										<p><%= comment.content %></p>
+									</div>
+								</div>
+
+								<ol class="childlist">
+									<li>
+										<div class="comments">
+										<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" border="0"> </div>
+										<div class="comment-des">
+										<div class="comment-by"><strong>Lucas Luck</strong><span class="reply"><span style="color:#aaa"></span></span><span class="date">June 1, 2012</span></div>
+											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+											</div>
+										</div>
+									</li>
+								</ol>		
+							</li>
+							<% end %>
+						<% else %>
+							This blog has no comments yet. Be the first to leave a comment.
+						<% end %>
+					 </ol>
+
+				</div>
+				<!-- end: Comments -->
+				
+				<div class="clear"></div>
+				
+				<hr>
+
+				<div class="title-out">
+					<h3>Leave a Comment</h3>
+				</div>
+				<hr>
+				<%= render 'comments/form' %>
+				<hr>
+
+			</div>	
+
+			<!-- start: Sidebar -->
+
+			<div class="span3 hidden-phone">
+
+				<!-- start: Popular Photos -->
+				<div class="widget first">
+					<div class="title">
+						<h3>Popular Photos</h3>
+					</div>
+
+					<div class="flickr-widget">
+						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=29609591@N08"></script><div class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/29609591@N08/8637527812/"><img src="http://farm9.staticflickr.com/8542/8637527812_326926a060_s.jpg" alt="A photo on Flickr" title="Beech Tree Strathmore" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/29609591@N08/8627629925/"><img src="http://farm9.staticflickr.com/8521/8627629925_0781c1fc87_s.jpg" alt="A photo on Flickr" title="Fowlis" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image3"><a href="http://www.flickr.com/photos/29609591@N08/8207432285/"><img src="http://farm9.staticflickr.com/8203/8207432285_b85b135b3e_s.jpg" alt="A photo on Flickr" title="Skotland" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image4"><a href="http://www.flickr.com/photos/29609591@N08/8188704520/"><img src="http://farm9.staticflickr.com/8478/8188704520_8d7b0a9536_s.jpg" alt="A photo on Flickr" title="Elgol From Tokavaig" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image5"><a href="http://www.flickr.com/photos/29609591@N08/8182862834/"><img src="http://farm9.staticflickr.com/8200/8182862834_45647ace5d_s.jpg" alt="A photo on Flickr" title="Buachaille Etive Mhor" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image6"><a href="http://www.flickr.com/photos/29609591@N08/8171984512/"><img src="http://farm9.staticflickr.com/8200/8171984512_d1a55efb7b_s.jpg" alt="A photo on Flickr" title="Forth Bridge" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image7"><a href="http://www.flickr.com/photos/29609591@N08/8164686559/"><img src="http://farm9.staticflickr.com/8483/8164686559_0e966d5797_s.jpg" alt="A photo on Flickr" title="Crannog Loch Tay" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image8"><a href="http://www.flickr.com/photos/29609591@N08/8145628896/"><img src="http://farm9.staticflickr.com/8330/8145628896_43d24df4f3_s.jpg" alt="A photo on Flickr" title="Eilean Sionnach Isleoransay" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image9"><a href="http://www.flickr.com/photos/29609591@N08/8141689644/"><img src="http://farm9.staticflickr.com/8052/8141689644_0a063815a0_s.jpg" alt="A photo on Flickr" title="Staffin Bay Ray" height="75" width="75"></a></div><span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="http://geo.yahoo.com/p?s=792600102&amp;t=0fe11f4d23ddd89c5c90f1da174fa229&amp;r=http%3A%2F%2Fbootstrapmaster.com%2Flive%2Fmagnus%2Fpost.html&amp;fl_ev=0&amp;lang=en&amp;intl=nl" width="0" height="0" alt=""></span>
+						<div class="clear"></div>
+					</div>
+
+				</div>
+				<!-- end: Popular Photos -->
+
+				<!-- start: Sidebar Menu -->
+				<div class="widget">
+					<div class="title"><h3>Menu</h3></div>
+					<ul class="links-list-alt">
+						<li><a href="full_width.html">Full Width</a></li>
+						<li><a href="sidebar.html">Sidebar</a></li>
+						<li><a href="post.html">Single Post</a></li>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="pricing_tables.html">Pricing Tables</a></li>
+					</ul>
+				</div>
+				<!-- end: Sidebar Menu -->
+
+				<!-- start: Tags -->
+				<div class="widget">
+					<div class="title"><h3>Tags</h3></div>
+					<div class="tags">
+						<a href="#">Tag1</a>
+						<a href="#">Tag2</a>
+						<a href="#">Tag3</a>
+						<a href="#">Tag4</a>
+						<a href="#">Tag5</a>
+						<a href="#">Tag6</a>
+						<a href="#">Tag7</a>
+						<a href="#">Tag8</a>
+						<a href="#">Tag9</a>
+						<a href="#">Tag10</a>
+						<a href="#">Tag11</a>
+						<a href="#">Tag12</a>
+					</div>
+				</div>
+
+			</div>
+		<!-- end: Sidebar -->
+		
+		</div>
+	
+	</div>
+</div>

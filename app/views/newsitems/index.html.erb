@@ -1,0 +1,122 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>News</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+
+    <% if !@newsitems.empty? %>
+    
+    <div class="row">
+      <div class="span9">
+        <% @newsitems.each do |newsitem| %>
+
+          <div class="post">
+
+            <span class="post-icon standard"><i class="ico-pen circle"></i></span>
+            <div class="post-content">
+              <div class="post-title">
+                <h2><%= link_to newsitem.title, newsitem_path(newsitem) %></h2>
+              </div>
+              <div class="post-description">
+                <p><%= newsitem.description %></p>
+              </div>
+              <div class="post-entry">
+                <%= link_to 'Read More...', newsitem_path(newsitem) %>
+              </div>
+              <div class="post-meta">
+                <span><i class="mini-ico-calendar"></i><%= newsitem.created_at.to_s(:short) %></span>
+                <span><i class="mini-ico-user"></i>By <a href="#"><%= newsitem.user.name %></a></span>
+                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to newsitem.comments.count, newsitem_path(newsitem) %></span>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+        <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
+        <ul class="pagination">
+          <%= will_paginate @newsitems %>
+        </ul>
+
+      </div>
+      <!-- end: span 9  -->
+
+      <div class="span3 hidden-phone">
+          
+        <div class="widget first">
+          <div class="title">
+            <h3>MSC websites</h3>
+            <ul><br>
+              <li>BUYMASTERCOINS.COM</li>
+              <li>MASTERCHAIN.INFO</li>
+              <li>MASTERCHEST.INFO</li>
+              <li>MASTERCOIN EXPLORER</li>
+              <li>MYMASTERCOINS</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="widget first">
+          <div class="title">
+            <h3>Organization web</h3>
+            <ul><br>
+              <li>MASTERCOIN FOUNDATION</li>
+              <li>MASTERCOIN TRELLO</li>
+              <li>MASTERCOIN WIKI</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="widget first">
+          <div class="title">
+            <h3>Our community</h3>
+            <ul><br>
+              <li>MASTERCOIN /REDDIT</li>
+              <li>MASTERCOIN BITCOINTALK.ORG</li>
+              <li>MASTERCOIN CHINESE BLOG</li>
+              <li>MASTERCOIN FB GROUP</li>
+              <li>MASTERCOIN FOUNDATION ON FB</li>
+              <li>MASTERCOIN GITHUB</li>
+              <li>MASTERCOIN GOOGLE+</li>
+              <li>MASTERCOIN ISRAEL BLOG</li>
+              <li>MASTERCOIN LINKEDIN</li>
+              <li>MASTERCOIN QUORA</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="widget">
+          <div class="title">
+            <h3>Video Widget</h3>
+          </div>
+          <div class="flex-video widescreen">
+            <iframe src="http://player.vimeo.com/video/78498192" width="480" height="256" frameborder="0" title="Mastercoin Calls for Developers" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="title"><h3>Menu</h3></div>
+          <ul class="links-list-alt">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="post.html">Single Post</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="pricing.html">Pricing Tables</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <% else %>
+        <p>Theres no news created just yet. </p>
+        <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
+      <% end %>
+
+    </div>
+    <hr>
+  </div>
+</div>

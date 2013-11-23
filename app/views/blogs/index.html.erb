@@ -1,0 +1,123 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>Blogs</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+
+    <% if !@blogs.empty? %>
+    
+    <div class="row">
+      <div class="span9">
+        <% @blogs.each do |blog| %>
+
+          <div class="post">
+            <div class="post-img picture">
+              <%= link_to image_tag(blog.image.url), blog_path(blog) %>
+              <div class="image-overlay-link" style="opacity: 0; display: block;">
+              </div>
+            </div>
+
+            <span class="post-icon standard"><i class="ico-pen circle"></i></span>
+            <div class="post-content">
+              <div class="post-title">
+                <h2><%= link_to blog.title, blog_path(blog) %></h2>
+              </div>
+              <div class="post-description">
+                <p><%= blog.body %></p>
+              </div>
+              <div class="post-entry">
+                <%= link_to 'Read More...', blog_path(blog) %>
+              </div>
+              <div class="post-meta">
+                <span><i class="mini-ico-calendar"></i><%= blog.created_at.to_s(:short) %></span>
+                <span><i class="mini-ico-user"></i>By <a href="#"><%= blog.user.name %></a></span>
+                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to blog.comments.count, blog_path(blog) %></span>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+        <%= button_to 'Create new Blog', new_blog_path, id: "comment_button", method: :get  %>
+        <ul class="pagination">
+          <%= will_paginate @blogs %>
+        </ul>
+
+      </div>
+      <!-- end: span 9  -->
+
+      <div class="span3 hidden-phone">
+          
+        <div class="widget first">
+          <div class="title">
+            <h3>Text Widget</h3>
+          </div>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+        </div>
+        
+        <div class="widget">
+          <div class="title">
+            <h3>Video Widget</h3>
+          </div>
+          <div class="flex-video widescreen">
+            <iframe src="http://player.vimeo.com/video/78498192" width="480" height="256" frameborder="0" title="Mastercoin Calls for Developers" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="title">
+            <h3>Popular Photos</h3>
+          </div>
+
+          <div class="flickr-widget">
+            <script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&amp;display=latest&amp;size=s&amp;layout=x&amp;source=user&amp;user=29609591@N08"></script><div class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/29609591@N08/8637527812/"><img src="http://farm9.staticflickr.com/8542/8637527812_326926a060_s.jpg" alt="A photo on Flickr" title="Beech Tree Strathmore" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/29609591@N08/8627629925/"><img src="http://farm9.staticflickr.com/8521/8627629925_0781c1fc87_s.jpg" alt="A photo on Flickr" title="Fowlis" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image3"><a href="http://www.flickr.com/photos/29609591@N08/8207432285/"><img src="http://farm9.staticflickr.com/8203/8207432285_b85b135b3e_s.jpg" alt="A photo on Flickr" title="Skotland" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image4"><a href="http://www.flickr.com/photos/29609591@N08/8188704520/"><img src="http://farm9.staticflickr.com/8478/8188704520_8d7b0a9536_s.jpg" alt="A photo on Flickr" title="Elgol From Tokavaig" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image5"><a href="http://www.flickr.com/photos/29609591@N08/8182862834/"><img src="http://farm9.staticflickr.com/8200/8182862834_45647ace5d_s.jpg" alt="A photo on Flickr" title="Buachaille Etive Mhor" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image6"><a href="http://www.flickr.com/photos/29609591@N08/8171984512/"><img src="http://farm9.staticflickr.com/8200/8171984512_d1a55efb7b_s.jpg" alt="A photo on Flickr" title="Forth Bridge" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image7"><a href="http://www.flickr.com/photos/29609591@N08/8164686559/"><img src="http://farm9.staticflickr.com/8483/8164686559_0e966d5797_s.jpg" alt="A photo on Flickr" title="Crannog Loch Tay" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image8"><a href="http://www.flickr.com/photos/29609591@N08/8145628896/"><img src="http://farm9.staticflickr.com/8330/8145628896_43d24df4f3_s.jpg" alt="A photo on Flickr" title="Eilean Sionnach Isleoransay" height="75" width="75"></a></div><div class="flickr_badge_image" id="flickr_badge_image9"><a href="http://www.flickr.com/photos/29609591@N08/8141689644/"><img src="http://farm9.staticflickr.com/8052/8141689644_0a063815a0_s.jpg" alt="A photo on Flickr" title="Staffin Bay Ray" height="75" width="75"></a></div><span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="http://geo.yahoo.com/p?s=792600102&amp;t=1a0938795916718e01f16aa49a8c963a&amp;r=http%3A%2F%2Fbootstrapmaster.com%2Flive%2Fmagnus%2Fblog.html&amp;fl_ev=0&amp;lang=en&amp;intl=nl" width="0" height="0" alt=""></span></script>
+            <div class="clear"></div>
+          </div>
+
+        </div>
+
+        <div class="widget">
+          <div class="title"><h3>Menu</h3></div>
+          <ul class="links-list-alt">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="post.html">Single Post</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="pricing.html">Pricing Tables</a></li>
+          </ul>
+        </div>
+
+        <div class="widget">
+          <div class="title"><h3>Tags</h3></div>
+            <div class="tags">
+              <a href="#">Tag1</a>
+              <a href="#">Tag2</a>
+              <a href="#">Tag3</a>
+              <a href="#">Tag4</a>
+              <a href="#">Tag5</a>
+              <a href="#">Tag6</a>
+              <a href="#">Tag7</a>
+              <a href="#">Tag8</a>
+              <a href="#">Tag9</a>
+              <a href="#">Tag10</a>
+              <a href="#">Tag11</a>
+              <a href="#">Tag12</a>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+
+      <% else %>
+        <p>Theres no blogs created just yet. </p>
+        <%= button_to 'Create new Blog', new_blog_path, id: "comment_button", method: :get  %>
+      <% end %>
+
+    </div>
+    <hr>
+  </div>
+</div>

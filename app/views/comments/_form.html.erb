@@ -1,0 +1,7 @@
+<%= simple_form_for [@commentable, @comment] do |f| %>
+  <%= f.error_notification %>
+
+	<%= f.input :content %>
+    <%= f.button :submit, :id => "comment_button" %>
+
+<% end %>

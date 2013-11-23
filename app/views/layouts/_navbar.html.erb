@@ -10,6 +10,12 @@
         <%= link_to image_tag('mastercoin_logo.png'), '/', class: "brand", method: :get %>
     		<div class="nav-collapse collapse">
       		<ul class="nav">
+            <li><%= link_to "Features", pages_features_path %></li>
+            <li><%= link_to "Resources", resources_path %></li>
+            <li><%= link_to "Contact", pages_contact_path %></li>
+            <li><%= link_to "News", newsitems_path %></li>
+            <li><%= link_to "Blog", blogs_path %></li>
+            <li><%= link_to "The team", users_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to "Edit Settings", edit_user_registration_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>

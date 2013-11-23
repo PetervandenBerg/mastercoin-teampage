@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "86x86>" }
 
   validates :name, presence: true
+
+	has_many :resources, :dependent => :destroy
+  has_many :blogs, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 end

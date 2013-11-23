@@ -1,0 +1,62 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>Resources</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+
+    <div id="filters">
+      <ul class="option-set" data-option-key="filter">
+        <li><a href="#filter" class="selected" data-option-value="*">All</a></li>
+        <li>/</li>
+        <li><a href="#filter" data-option-value=".nature">Nature</a></li>
+        <li>/</li>
+        <li><a href="#filter" data-option-value=".people">People</a></li>
+        <li>/</li>
+        <li><a href="#filter" data-option-value=".scenery">Scenery</a></li>
+        <li>/</li>
+        <li><a href="#filter" data-option-value=".world">World</a></li>
+      </ul>
+    </div>
+    <hr>
+
+    <% if !@resources.empty? %>
+    
+      <div class="container">
+
+        <div id="portfolio-wrapper" class="row isotope" style="position: relative; overflow: hidden;">  
+
+          <% @resources.each do |resource| %> 
+            <div class="span3 portfolio-item nature people isotope-item" >
+              <div class="picture">
+                <div class="item-description alt">
+                  <h2><%= link_to resource.title, resource_path(resource) %></h2><hr>
+                </div>
+                <%= image_tag resource.image.url(:medium), title: "Title" %>
+                  <div class="image-overlay-link" style="opacity: 0; display: block;">
+                  </div>
+
+                <div class="item-description alt">
+                  <p>
+                    <hr><%= resource.description %>
+                  </p>
+                </div>
+              </div>  
+            </div>
+          <% end %>
+        </div>
+      <%= button_to 'Create new resource', new_resource_path, id: "comment_button", method: :get  %>
+      </div>
+
+    <% else %>
+      <p>Theres no resources created just yet. </p>
+      <%= button_to 'Create new resource', new_resource_path, id: "comment_button", method: :get %>
+    <% end %>
+
+    <hr>
+  </div>
+</div>

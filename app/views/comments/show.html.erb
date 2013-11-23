@@ -1,0 +1,35 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>Comments</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container"><p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Name:</strong>
+		  <%= @comment.name %>
+		</p>
+
+		<p>
+		  <strong>Email:</strong>
+		  <%= @comment.email %>
+		</p>
+
+		<p>
+		  <strong>Message:</strong>
+		  <%= @comment.message %>
+		</p>
+
+		<p>
+		  <strong>User:</strong>
+		  <%= @comment.user_id %>
+		</p>
+
+		<%= link_to 'Edit', edit_comment_path(@comment) %> 
+		<%= link_to 'Back', comments_path %>
+	</div>
+</div>
