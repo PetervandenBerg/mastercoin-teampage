@@ -39,6 +39,9 @@
         <%= f.file_field :image, class: "form-control" %>
       </div>
 
+      <div><%= f.label :kind %><br />
+      <%= f.select(:kind, [['Guest', 0], ['User', 1], ['Staff', 2]]) %></div>
+
       <div><%= f.submit "Update" %></div>
     <% end %>
     <hr>

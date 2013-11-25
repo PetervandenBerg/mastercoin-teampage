@@ -1,0 +1,111 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i><%= @user.name %>'s Profile Page</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+ 
+  	<hr>
+    <!-- start: Row -->
+    <div class="row">
+      <div class="span9">
+
+      	
+        <div class="post">
+          <div id="user_image">
+        	  <p><%= image_tag @user.image.url(:medium) %></p>
+          </div>
+          <div id="user_details">
+     				<p><strong>Name: </strong><%= @user.name %></p>
+     				<p><strong>Description: </strong><%= @user.description %></p>
+     				<p><strong>Job-description: </strong><%= @user.job_description %></p>
+     				<p><%= @user.linked_in %></p>
+          </div>
+        </div>
+
+        <div class="post">
+ 					<div class="title">
+          <br>
+            <h3><%= @user.name %>'s Latest Comments </h3>
+          </div><br>
+            <table>
+              <tr>
+                <th>Type</th>
+                <th>Content</th>
+                <th>Created at</th>
+              </tr>
+              <% @user.comments.each do |comment| %>
+              <tr>
+                <td><%= comment.commentable_type %></td>
+                <td><%= truncate(comment.content, length: 50) %></td>
+                <td><%= comment.created_at.to_s(:short) %></td>
+              </tr>
+              <% end %>
+            </table>
+        </div>
+
+        <div class="post">
+          <div class="title">
+            <br>
+            <h3><%= @user.name %>'s Latest Blog's  </h3>
+          </div><br>
+          <table>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Created at</th>
+            </tr>
+            <% @user.blogs.each do |blog| %>
+            <tr>
+              <td><%= blog.title %></td>
+              <td><%= truncate(blog.body, length: 50) %></td>
+              <td><%= blog.created_at.to_s(:short) %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+
+        <div class="post">
+ 						<div class="title">
+         		<br>
+            	<h3><%= @user.name %>'s Latest Bounty's Fullfilled  </h3>
+         		</div><br>
+            <p>Under development</p>
+        </div>
+
+      </div><!-- end: Span9 -->
+
+
+      <div class="span3 hidden-phone">
+        
+        <div class="widget">
+          <div class="title">
+            <h3>Mastercoin Introduction</h3>
+          </div>
+          <div class="flex-video widescreen">
+            <iframe src="http://player.vimeo.com/video/78498192" width="480" height="256" frameborder="0" title="Mastercoin Calls for Developers" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+          </div>
+        </div>
+
+        <div class="widget">
+          <div class="title">
+            <h3>Video Widget</h3>
+          </div>
+          <div class="flex-video widescreen">
+            <iframe src="http://player.vimeo.com/video/78498192" width="480" height="256" frameborder="0" title="Mastercoin Calls for Developers" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- end: Row -->
+
+    <hr>
+
+  </div>
+</div>
