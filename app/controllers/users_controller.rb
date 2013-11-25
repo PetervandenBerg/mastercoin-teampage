@@ -1,12 +1,5 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all.where(kind: 2).paginate(:page => params[:page], :per_page => 15)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
-  end
+  before_action :get_news
 
   def show
     @user = User.find(params[:id])
@@ -15,5 +8,20 @@ class UsersController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @user }
     end
+  end
+
+  def index
+    @users = User.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @users }
+    end
+  end
+
+  private
+
+  def get_news
+    @news = Newsitem.all.last(5)
   end
 end

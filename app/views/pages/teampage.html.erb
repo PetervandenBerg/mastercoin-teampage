@@ -1,0 +1,58 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>TeamPage</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+  
+    <div class="clearfix"></div>
+
+      <% @users.in_groups_of(3,false) do |users| %>
+      <hr>
+        <!-- start: Row -->
+        <div class="row">
+        <% users.collect do |user| %>
+          <div class="span4">
+            <div class="icons-box box">
+              <% if user.image_file_name.present? %>
+                <div class="span4_image">
+                  <%= link_to(image_tag(user.image.url(:thumb)), user_path(user)) %><br>
+                  <% if user.linked_in.present? %>
+                    <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+                    <script type="IN/MemberProfile" data-id=<%= user.linked_in %> data-format="hover"></script>
+                  <% else %>
+                    <%= user.linked_in %>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="span4_image">
+                  <%= link_to(image_tag('empty.jpg'), user_path(user)) %>
+                </div>
+              <% end %>
+              <div class="title">
+                <h3><%= link_to user.name, user_path(user) %></h3>
+              </div>
+              <div class="title">
+                <h6><%= raw markdown.render(user.job_description) %></h6>
+              </div>
+              <p><%= truncate(user.description, length: 350) %></p>
+              <div class="clear"></div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+      <hr>
+      <%= button_to 'Add new User', new_user_path, id: "comment_button", method: :get  %>
+    </div>
+
+  <div id="pagination"><%= will_paginate @users %></div>  
+
+  <hr>        
+
+  </div>
+</div>

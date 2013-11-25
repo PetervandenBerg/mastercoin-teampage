@@ -1,5 +1,7 @@
 class NewsitemsController < ApplicationController
   before_action :set_newsitem, only: [:show, :edit, :update, :destroy]
+  before_action :get_news
+
 
   # GET /newsitems
   # GET /newsitems.json
@@ -69,6 +71,10 @@ class NewsitemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_newsitem
       @newsitem = Newsitem.find(params[:id])
+    end
+
+    def get_news
+      @news = Newsitem.all.last(5)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

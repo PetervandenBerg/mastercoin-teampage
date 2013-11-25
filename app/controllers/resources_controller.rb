@@ -1,5 +1,7 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  before_action :get_news
+
 
   # GET /resources
   # GET /resources.json
@@ -66,6 +68,10 @@ class ResourcesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
       @resource = Resource.find(params[:id])
+    end
+
+    def get_news
+      @news = Newsitem.all.last(5)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

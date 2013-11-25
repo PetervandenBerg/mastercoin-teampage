@@ -15,6 +15,7 @@ Teampage::Application.routes.draw do
   get "pages/home"
   get "pages/features"
   get "pages/contact"
+  get "pages/teampage"
 
   root 'pages#home'
 

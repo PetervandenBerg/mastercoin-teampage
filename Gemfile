@@ -7,6 +7,8 @@ gem 'simple_form'
 gem 'paperclip'
 gem 'aws-sdk', '1.9.5'
 gem 'will_paginate', '~> 3.0'
+gem 'albino'
+gem 'redcarpet'
 
 group :production do
 	gem 'pg'

@@ -21,7 +21,7 @@
           </div>
           <div id="user_details">
      				<p><strong>Name: </strong><%= @user.name %></p>
-     				<p><strong>Description: </strong><%= @user.description %></p>
+     				<p><strong>Description: </strong><%= raw markdown.render(@user.description) %></p>
      				<p><strong>Job-description: </strong><%= @user.job_description %></p>
      				<p><%= @user.linked_in %></p>
           </div>

@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable
+  before_action :get_news
+
 
   # GET /comments
   # GET /comments.json
@@ -65,6 +67,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+    def get_news
+      @news = Newsitem.all.last(5)
+    end
 
     def load_commentable
       resource, id = request.path.split('/')[1, 2]

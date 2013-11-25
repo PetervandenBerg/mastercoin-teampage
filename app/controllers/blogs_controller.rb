@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :get_news
   before_filter :authenticate_user!, only: [:create, :update, :edit, :destroy]
 
   # GET /blogs
@@ -67,6 +68,10 @@ class BlogsController < ApplicationController
   end
 
   private
+
+    def get_news
+      @news = Newsitem.all.last(5)
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_blog

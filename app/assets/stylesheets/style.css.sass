@@ -542,17 +542,21 @@ header
  *===================================================================
 
 .flexslider
-  margin: 0
   padding: 0
+
   .slides
     > li
       position: relative
       zoom: 1
       display: none
       -webkit-backface-visibility: hidden
+      z-index: 0
     img
       width: 100%
+      position: relative
+      overflow: hidden
       display: block
+      z-index: 0
 
 /* Hide the slides before the JS is loaded. Avoids image jumping
 
@@ -1628,7 +1632,8 @@ a.buy
 
 .post-content
   padding: 10px 10px 0px 10px
-  margin: 22px 0 0 0px
+  margin: 22px
+  margin-left: 100px
 
 .post-icon
   float: left
@@ -1654,6 +1659,7 @@ a.buy
     zoom: 1
   span
     margin-right: 10px
+    margin-left: 0
 
 #portfolio-wrapper .post-meta
   background: #fcfcfc

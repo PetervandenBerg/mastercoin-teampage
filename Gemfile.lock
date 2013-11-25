@@ -25,6 +25,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    albino (1.3.3)
+      posix-spawn (>= 0.3.6)
     arel (4.0.1)
     atomic (1.1.14)
     aws-sdk (1.9.5)
@@ -77,6 +79,7 @@ GEM
       mime-types
     pg (0.16.0)
     polyglot (0.3.3)
+    posix-spawn (0.3.6)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -101,6 +104,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -144,6 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  albino
   aws-sdk (= 1.9.5)
   coffee-rails (~> 4.0.0)
   devise
@@ -153,6 +158,7 @@ DEPENDENCIES
   pg
   rails (= 4.0.1)
   rails_12factor
+  redcarpet
   sass-rails (~> 4.0.0)
   sdoc
   simple_form

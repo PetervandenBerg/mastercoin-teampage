@@ -1,3 +1,5 @@
+<%= render 'layouts/facebook_share' %>
+
 <div id="page-title">
   <div id="page-title-inner">
     <div class="container">
@@ -22,13 +24,13 @@
               </div>
             </div>
 
-            <span class="post-icon standard"><i class="ico-pen circle"></i></span>
+            <span class="post-icon standard"><div id="profile_image"><%= image_tag(blog.user.image.url) %></div></span>
             <div class="post-content">
               <div class="post-title">
                 <h2><%= link_to blog.title, blog_path(blog) %></h2>
               </div>
               <div class="post-description">
-                <p><%= blog.body %></p>
+                <p><%= raw markdown.render(blog.body) %></p>
               </div>
               <div class="post-entry">
                 <%= link_to 'Read More...', blog_path(blog) %>
@@ -37,6 +39,7 @@
                 <span><i class="mini-ico-calendar"></i><%= blog.created_at.to_s(:short) %></span>
                 <span><i class="mini-ico-user"></i>By <a href="#"><%= blog.user.name %></a></span>
                 <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to blog.comments.count, blog_path(blog) %></span>
+                <span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
               </div>
             </div>
 

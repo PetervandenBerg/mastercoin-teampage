@@ -11,25 +11,22 @@
 	<div class="container">
 		<div class="row">
 			<div class="span3">
+				<h3>Latest news</h3>
+					<ul>
+						<% @news.each do |newsitem| %>
+						<li><span><%=	truncate(newsitem.title, lenght: 50) %></span>
+							<b><%= link_to "About X hours ago", newsitem_path(newsitem) %></b>
+						</li>
+						<% end %>
+					</ul>
 				
-				<h3>creativeLabs</h3>
-
-				<p><i class="mini-ico-map-marker mini-white"></i> 30 South Park Avenue</p>
-				<p><i class="mini-ico-map-marker mini-white"></i> San Francisco, CA 94108, USA</p>	
-				<p><i class="ico-z-iphone"></i> Phone: (123) 456-7890</p>
-				<p><i class="mini-ico-print mini-white"></i> Fax: +08 (123) 456-7890</p>
-				<p><i class="mini-ico-envelope mini-white"></i> Email: contact@companyname.com</p>
-				<p><i class="mini-ico-globe mini-white"></i> Web: companyname.com</p>
-					
 			</div>
 
 			<div class="span3">
-				
-				<h3>Latest Tweets</h3>
-			
-
+					<a class="twitter-timeline" href="https://twitter.com/MSCProtocol" data-widget-id="404898571293425664">Tweets by @MSCProtocol</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+					</script>
 				<div class="clear"></div>
-				
 			</div>
 
 			<div class="span3">

@@ -1,3 +1,5 @@
+<%= render 'layouts/facebook_share' %>
+
 <div id="page-title">
   <div id="page-title-inner">
     <div class="container">
@@ -18,17 +20,18 @@
 					<div class="post-img picture">
 						<%= image_tag @blog.image.url %>
 					</div>
-					<span class="post-icon standard"><i class="ico-pen circle"></i></span>
+					<span class="post-icon standard"><%= image_tag(@blog.user.image.url) %></i></span>
 					<div class="post-content">
 						<div class="post-title">
 							<h2><%= @blog.title %></h2>
 						</div>
 						<div class="post-description">
-							<p><%= @blog.body %></p>
+							<p><%= raw markdown.render(@blog.body) %></p>
 						</div>
 						<div class="post-meta">
 							<span><i class="mini-ico-calendar"></i><%= @blog.created_at.to_s(:short) %></span>
 							<span><i class="mini-ico-user"></i>By <a href="#"><%= @blog.user.name %></a></span>
+							<span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
 						</div>
 					</div>
 				
@@ -51,10 +54,14 @@
 							<% @comments.each do |comment| %>
 							<li>
 								<div class="comments">
+									<% if comment.user.image.present? %>
+									<div class="avatar"><%= image_tag comment.user.image.url(:thumb) %></div>
+									<% else %>
 									<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" width="50" height="50" border="0"></div>
+									<% end %>
 									<div class="comment-des">
 									<div class="comment-by"><strong><%= comment.user.name %></strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span> <span class="date"><%= comment.created_at %></span></div>
-										<p><%= comment.content %></p>
+										<p><%= raw markdown.render(comment.content) %></p>
 									</div>
 								</div>
 
