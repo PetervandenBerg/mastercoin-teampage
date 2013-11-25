@@ -13,10 +13,12 @@
 			<div class="span3">
 				<h3>Latest news</h3>
 					<ul>
-						<% @news.each do |newsitem| %>
-						<li><span><%=	truncate(newsitem.title, lenght: 50) %></span>
-							<b><%= link_to "About X hours ago", newsitem_path(newsitem) %></b>
-						</li>
+						<% unless current_page?(new_user_session_path) || current_page?(edit_user_registration_path) %>
+							<% @news.each do |newsitem| %>
+							<li><span><%=	truncate(newsitem.title, lenght: 50) %></span>
+								<b><%= link_to "About X hours ago", newsitem_path(newsitem) %></b>
+							</li>
+							<% end %>
 						<% end %>
 					</ul>
 				
