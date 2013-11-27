@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131124104006) do
+ActiveRecord::Schema.define(version: 20131126143713) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -54,6 +54,14 @@ ActiveRecord::Schema.define(version: 20131124104006) do
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type"
 
+  create_table "messages", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "newsitems", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -61,6 +69,14 @@ ActiveRecord::Schema.define(version: 20131124104006) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "read",       default: false
   end
 
   create_table "resources", force: true do |t|

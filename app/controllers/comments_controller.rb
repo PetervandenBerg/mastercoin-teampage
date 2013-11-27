@@ -1,32 +1,22 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable
-  before_action :get_news
 
-
-  # GET /comments
-  # GET /comments.json
   def index
     @comments = @commentable.comments
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
   def show
     @comment = @commentable.comment(@commentable)
   end
 
-  # GET /comments/new
   def new
     @comment = @commentable.comments.new
   end
 
-  # GET /comments/1/edit
   def edit
     @comment = @commentable.comment(@commentable)
   end
 
-  # POST /comments
-  # POST /comments.json
   def create
     @comment = @commentable.comments.new(comment_params)
     @comment.user_id = current_user.id
@@ -42,8 +32,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -56,8 +44,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
     @comment.destroy
     respond_to do |format|
@@ -77,7 +63,6 @@ class CommentsController < ApplicationController
       @commentable = resource.singularize.classify.constantize.find(id)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:content, :user_id, :commentable_type, :commentable_id)
     end

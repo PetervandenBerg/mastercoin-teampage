@@ -1,12 +1,19 @@
 Teampage::Application.routes.draw do
 
+  resources :messages do
+    resources :comments
+  end
+  
+  resources :notifications
+
   resources :newsitems
 
   devise_for :admins
   devise_for :users
 
   resources :resources
-  resources :users
+  
+  resources :users 
 
   resources :blogs do
     resources :comments

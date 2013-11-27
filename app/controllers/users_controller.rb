@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :get_news
 
   def show
     @user = User.find(params[:id])
@@ -19,9 +18,4 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-  def get_news
-    @news = Newsitem.all.last(5)
-  end
 end

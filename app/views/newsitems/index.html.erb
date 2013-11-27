@@ -18,7 +18,6 @@
         <% @newsitems.each do |newsitem| %>
 
           <div class="post">
-            <span class="post-icon standard"><%= image_tag newsitem.user.image.url(:medium) %></i></span>
             <div class="post-content">
               <div class="post-title">
                 <h2><%= newsitem.title %></h2>

@@ -12,14 +12,13 @@
 		<div class="row">
 			<div class="span3">
 				<h3>Latest news</h3>
-					<ul>
-						<% unless current_page?(new_user_session_path) || current_page?(edit_user_registration_path) || current_page?(new_user_registration_path)%>
-							<% @news.each do |newsitem| %>
-							<li><span><%=	truncate(newsitem.title, lenght: 50) %></span>
-								<b><%= link_to "About X hours ago", newsitem_path(newsitem) %></b>
-							</li>
+					<ul id="news_footer">
+							<% newsitems = Newsitem.all.last(5) %>
+							<% newsitems.each do |newsitem| %>
+								<li><span><%=	newsitem.title %></span>
+									<b><%= link_to "About #{distance_of_time_in_words_to_now(newsitem.created_at)} ago", newsitem_path(newsitem) %></b>
+								</li>
 							<% end %>
-						<% end %>
 					</ul>
 				
 			</div>

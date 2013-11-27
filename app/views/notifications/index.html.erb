@@ -1,0 +1,42 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>My Notifications</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+
+    <div class="row">    
+      <div class="span9">
+        <% @notifications.each do |notification| %>
+
+          <div class="post">
+            <div class="post-content">
+              <div class="post-title">
+                <h2><%= notification.message.title %></h2>
+              </div>
+              <div class="post-description">
+                <p><%= raw markdown.render(notification.message.description) %></p>
+              </div>
+              <div class="post-meta">
+                <span><i class="mini-ico-calendar"></i><%= notification.created_at.to_s(:short) %></span>
+                <span><i class="mini-ico-user"></i>By <a href="#"><%= notification.message.author.name %></a></span>
+                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to '0', '#' %></span>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+        <div id="pagination"><%= will_paginate @notifications %></div>  
+
+      </div>
+      <%= render 'layouts/news_banner' %>
+
+    </div>
+
+  </div>
+</div>    
+ 

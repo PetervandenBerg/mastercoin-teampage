@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
 	has_many :resources, :dependent => :destroy
   has_many :blogs, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_many :newsitems, :dependent => :destroy
+
+  has_many :messages, through: :notifications
+  has_many :notifications
 end

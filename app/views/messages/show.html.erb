@@ -1,0 +1,123 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i><%= @notification.message.title %></h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+
+    <div class="row">    
+      <div class="span9">
+
+        <div class="post">
+          <div class="post-content">
+            <div class="post-title">
+              <h2><%= distance_of_time_in_words_to_now(@notification.created_at) %> ago, <%= @notification.message.author.name %> wrote:</h2>
+            </div>
+            <div class="post-description">
+              <p><%= raw markdown.render(@notification.message.description) %></p>
+            </div>
+            <div class="post-meta">
+              <span><i class="mini-ico-calendar"></i><%= @notification.created_at.to_s(:short) %></span>
+              <span><i class="mini-ico-user"></i>By <a href="#"><%= @notification.message.author.name %></a></span>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <!-- start: Comments -->
+        <div class="title-out">
+          <h3>Comments <span class="comments-amount"><%= @message.comments.count %></span></h3>
+        </div>
+        
+        <hr>
+        
+        <div class="comments-sec">
+
+          <ol class="commentlist">
+            <% if !@comments.empty? %>
+              <% @comments.each do |comment| %>
+              <li>
+                <div class="comments">
+                  <% if comment.user.image.present? %>
+                  <div class="avatar"><%= image_tag comment.user.image.url(:thumb) %></div>
+                  <% else %>
+                  <div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" width="50" height="50" border="0"></div>
+                  <% end %>
+                  <div class="comment-des">
+                  <div class="comment-by"><strong><%= comment.user.name %></strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span> <span class="date"><%= comment.created_at %></span></div>
+                    <p><%= raw markdown.render(comment.content) %></p>
+                  </div>
+                </div>
+
+                <ol class="childlist">
+                  <li>
+                    <div class="comments">
+                    <div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" border="0"> </div>
+                    <div class="comment-des">
+                    <div class="comment-by"><strong>Lucas Luck</strong><span class="reply"><span style="color:#aaa"></span></span><span class="date">June 1, 2012</span></div>
+                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>   
+              </li>
+              <% end %>
+            <% else %>
+              This message has no comments yet. Be the first to leave a comment.
+            <% end %>
+          </ol>
+
+        </div>
+        <!-- end: Comments -->
+        
+        <div class="clear"></div>
+        
+        <hr>
+
+        <div class="title-out">
+          <h3>Leave a Comment</h3>
+        </div>
+        <hr>
+        <%= render 'comments/form' %>
+        <hr>
+
+        <div class="post">
+          <div class="title">
+            <br>
+            <h3>More Unread Notifications </h3>
+          </div><br>
+
+            <% if current_user.notifications.where(read: false).present? %>
+              <table>
+                <tr>
+                  <th>Created at</th>
+                  <th>Title</th>
+                  <th>Message</th>
+                  <th></th>
+                </tr>
+                  <% current_user.notifications.where(read: false).order('created_at DESC').each do |notification| %>
+                    <tr>
+                      <td><%= notification.message.created_at.to_s(:short) %></td>
+                      <td><%= notification.message.title %></td>
+                      <td><%= truncate(notification.message.description,length: 50) %></td>
+                      <td><%= link_to 'Show', message_path(notification.message) %></td>
+                    </tr>
+                  <% end %>
+              </table>
+            <% else %>
+              There's no new notifications to be read.
+            <% end %>
+        </div>
+        <hr>
+
+      </div>
+      <%= render 'layouts/news_banner' %>
+    </div>
+
+  </div>
+</div>    
+ 

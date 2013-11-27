@@ -14,17 +14,57 @@
     <div class="row">
       <div class="span9">
 
-      	
         <div class="post">
-          <div id="user_image">
-        	  <p><%= image_tag @user.image.url(:medium) %></p>
-          </div>
-          <div id="user_details">
-     				<p><strong>Name: </strong><%= @user.name %></p>
-     				<p><strong>Description: </strong><%= raw markdown.render(@user.description) %></p>
-     				<p><strong>Job-description: </strong><%= @user.job_description %></p>
-     				<p><%= @user.linked_in %></p>
-          </div>
+          <% if @user.image.present? %>
+            <div id="user_image">
+          	  <p><%= image_tag @user.image.url(:medium) %></p>
+            </div>
+          <% else %>
+            <div id="user_image">
+              <%= image_tag('empty.jpg') %>
+            </div>
+          <% end %>
+
+          <% if @user.description.present? %>
+            <div id="user_details">
+       				<p><strong>Name: </strong><%= @user.name %></p>
+       				<p><strong>Description: </strong><%= raw markdown.render(@user.description) %></p>
+       				<p><strong>Job-description: </strong><%= @user.job_description %></p>
+       				<p><%= @user.linked_in %></p>
+            </div>
+          <% else %>
+            <div>
+              <p>Please fill in more details about yourself: <%= link_to "Click here", edit_user_registration_path(@user) %></p>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="post">
+          <div class="title">
+            <br>
+            <h3><%= @user.name %>'s Unread Notifications </h3>
+          </div><br>
+            <% if @user.notifications.where(read: false).present? %>
+              <table>
+              <tr>
+                <th>Created at</th>
+                <th>Title</th>
+                <th>Message</th>
+                <th></th>
+              </tr>
+              <% @user.notifications.where(read: false).order('created_at DESC').each do |notification| %>
+              <tr>
+                <td><%= notification.message.created_at.to_s(:short) %></td>
+                <td><%= notification.message.title %></td>
+                <td><%= truncate(notification.message.description,length: 50) %></td>
+                <td><%= link_to 'Show', message_path(notification.message) %></td>
+              </tr>
+              <% end %>
+            </table>
+          <% else %>
+              There's no new notifications to be read.
+          <% end %>
+          <%= link_to 'Show all Notifications', notifications_path %>
         </div>
 
         <div class="post">

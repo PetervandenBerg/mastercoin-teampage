@@ -1,0 +1,33 @@
+<div class="span3">
+
+<!-- start: Testimonials-->
+<% newsitems = Newsitem.all.last(4) %>
+
+<div class="testimonial-container">
+
+<div class="title-out"><h3>Latest news</h3></div>
+
+  <div class="testimonials-carousel" data-autorotate="3000" role="application" style="overflow: hidden; width: 100%;" aria-live="polite"> <a href="#carousel-1-0" class="mr-rotato-next"></a> <a href="#carousel-1-0" class="mr-rotato-prev mr-rotato-disabled" aria-disabled="true"></a>
+
+    <ul class="carousel" id="carousel-1-0" aria-activedescendant="carousel-1-0-slide0" style="margin-left: 0%; float: left; width: 400%; -webkit-transition: margin-left 0.3s ease; transition: margin-left 0.3s ease;">
+
+    <% newsitems.each do |newsitem| %>
+
+      <li class="testimonial" role="tabpanel document" id="carousel-1-0-slide3" aria-hidden="true" style="float: left; width: 25%;">
+        <div class="testimonials"><strong><%= link_to newsitem.title, newsitem_path(newsitem) %></div></strong>
+        <div class="testimonials"><%= truncate(newsitem.description, length: 400) %></div>
+        <div class="testimonials-bg"></div>
+        <div class="testimonials-author"><%= newsitem.user.name %>, <span><%= newsitem.user.job_description %></span></div>
+      </li>
+
+    <% end %>
+
+    </ul>
+
+  </div>
+
+</div>
+
+<!-- end: Testimonials-->
+
+</div>

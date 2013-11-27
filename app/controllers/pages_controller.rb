@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  before_action :get_news
 
   def home
   end
@@ -20,12 +19,6 @@ class PagesController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
-  end
-
-  private 
-
-  def get_news
-    @news = Newsitem.all.last(5)
   end
 
 end
