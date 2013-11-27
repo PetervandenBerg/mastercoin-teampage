@@ -1,0 +1,33 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>Contact</h2>
+    </div>
+  </div>  
+</div>
+
+<div id="wrapper">
+  <div class="container">
+
+    <div class="row form">
+      <%= simple_form_for @message, :url => contact_path, method: :post do |f| %>
+        <%= f.error_notification %>
+        <div class="span6 contact-box">
+          <%= f.input :name, label: false, placeholder: 'Name', input_html: {class: "name"} %>
+          <%= f.input :email, label: false, placeholder: 'Email', input_html: {class: "mail", type: "text"} %>
+          <%= f.input :subject, label: false, placeholder: 'Subject', input_html: {class: "subject", type: "text"} %>
+        </div>
+        <div class="span6 contact-box box_r">
+          <%= f.input :body, label: false, placeholder: 'Message', as: :text %>
+        </div>
+
+        <div class="row submit">
+          <div class="span3 right">
+            <%= f.button :submit, 'Send E-mail' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>    

@@ -18,6 +18,10 @@ html
 #user_description
   text-align: right
 
+#resource_description
+  min-height: 90px
+  margin: 0 10px
+
 .fb-like
   margin-bottom: 10px
 
@@ -60,6 +64,52 @@ html
 
 .span4_image
   margin-left: 10px
+
+.form, .contact form
+  margin: 0
+.form
+  .contact-box
+    margin: 0
+    input
+      &[type="text"]
+        padding-left: 39px
+        margin-bottom: 10px
+        color: black
+        height: 29px
+        border-radius: 3px
+        width: 89%
+  .box_r
+    float: left
+  .contact-box textarea
+    padding: 11px
+    width: 680px
+    border-radius: 3px
+    height: 113px
+.contact .submit
+  margin: 0
+  .box
+    margin: 0
+  label.checkbox
+    color: #394350
+    font-style: 14px
+  .right
+    float: right
+    input[type="submit"]
+      float: right
+      text-transform: uppercase
+      color: #fff
+      background: #848A8F
+      font-size: 15px
+      margin-top: 20px
+      padding: 4px 12px
+      border: 0 none
+      border-radius: 3px
+      -webkit-transition: background linear .2s, box-shadow linear .2s
+      -moz-transition: background linear .2s, box-shadow linear .2s
+      -o-transition: background linear .2s, box-shadow linear .2s
+      transition: background linear .2s, box-shadow linear .2s
+      &:hover
+        background: #252528
 
 
 .dropdown-backdrop
@@ -452,7 +502,6 @@ header
 #portfolio-wrapper
   .picture .item-description
     margin-bottom: 0px
-    padding: 5px
     border: none
     margin: 0px
   .portfolio-item
@@ -460,7 +509,7 @@ header
 
 .picture img
   width: 100%
-  height: auto
+  min-height: 150px
 
 .image-overlay-link, .image-overlay-zoom
   -webkit-transition: all 0.3s ease-in-out

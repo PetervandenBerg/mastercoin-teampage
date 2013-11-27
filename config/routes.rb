@@ -1,5 +1,6 @@
 Teampage::Application.routes.draw do
 
+  get "contact/new"
   resources :messages do
     resources :comments
   end
@@ -25,5 +26,8 @@ Teampage::Application.routes.draw do
   get "pages/teampage"
 
   root 'pages#home'
+
+  match 'contact' => 'contact#new', :via => :get
+  match 'contact' => 'contact#create', :via => :post
 
 end

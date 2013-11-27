@@ -20,6 +20,10 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :category %>
+    <%= f.select(:category, [['Information', 'info'], ['Buy mastercoin', 'buymsc'], ['Transaction lookup', 'translookup'], ['Wallet', 'wallet']]) %>
+  </div>
+  <div class="field">
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>

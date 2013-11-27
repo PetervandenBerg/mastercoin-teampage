@@ -13,7 +13,7 @@
 			<div class="span3">
 				<h3>Latest news</h3>
 					<ul id="news_footer">
-							<% newsitems = Newsitem.all.last(5) %>
+							<% newsitems = Newsitem.all.order('created_at DESC').last(5) %>
 							<% newsitems.each do |newsitem| %>
 								<li><span><%=	newsitem.title %></span>
 									<b><%= link_to "About #{distance_of_time_in_words_to_now(newsitem.created_at)} ago", newsitem_path(newsitem) %></b>

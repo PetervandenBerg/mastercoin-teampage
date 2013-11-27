@@ -13,13 +13,13 @@
       <ul class="option-set" data-option-key="filter">
         <li><a href="#filter" class="selected" data-option-value="*">All</a></li>
         <li>/</li>
-        <li><a href="#filter" data-option-value=".nature">Nature</a></li>
+        <li><a href="#filter" data-option-value=".info">Information</a></li>
         <li>/</li>
-        <li><a href="#filter" data-option-value=".people">People</a></li>
+        <li><a href="#filter" data-option-value=".buymsc">Buy mastercoin</a></li>
         <li>/</li>
-        <li><a href="#filter" data-option-value=".scenery">Scenery</a></li>
+        <li><a href="#filter" data-option-value=".translookup">Transaction lookup</a></li>
         <li>/</li>
-        <li><a href="#filter" data-option-value=".world">World</a></li>
+        <li><a href="#filter" data-option-value=".wallet">Wallet</a></li>
       </ul>
     </div>
     <hr>
@@ -31,7 +31,7 @@
         <div id="portfolio-wrapper" class="row isotope" style="position: relative; overflow: hidden;">  
 
           <% @resources.each do |resource| %> 
-            <div class="span3 portfolio-item nature people isotope-item" >
+            <div class="span3 portfolio-item <%= resource.category %> isotope-item" >
               <div class="picture">
                 <div class="item-description alt">
                   <h2><%= link_to resource.title, resource_path(resource) %></h2><hr>
@@ -40,9 +40,9 @@
                   <div class="image-overlay-link" style="opacity: 0; display: block;">
                   </div>
 
-                <div class="item-description alt">
+                <div id="resource_description">
                   <p>
-                    <hr><%= resource.description %>
+                    <hr><%= truncate(resource.description, length: 115) %>
                   </p>
                 </div>
               </div>  
