@@ -17,8 +17,12 @@ Teampage::Application.routes.draw do
   resources :users 
 
   resources :blogs do
-    resources :comments
+    resources :comments do
+      resources :comments
+    end
   end
+
+
  
   get "pages/home"
   get "pages/features"
