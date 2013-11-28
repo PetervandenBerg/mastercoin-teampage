@@ -34,7 +34,7 @@
             <div class="span3 portfolio-item <%= resource.category %> isotope-item" >
               <div class="picture">
                 <div class="item-description alt">
-                  <h2><%= link_to resource.title, resource_path(resource) %></h2><hr>
+                  <h2><%= link_to truncate(resource.title, length: 20), resource_path(resource) %></h2><hr>
                 </div>
                 <%= image_tag resource.image.url(:medium), title: "Title" %>
                   <div class="image-overlay-link" style="opacity: 0; display: block;">
