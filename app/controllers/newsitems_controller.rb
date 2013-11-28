@@ -2,7 +2,7 @@ class NewsitemsController < ApplicationController
   before_action :set_newsitem, only: [:show, :edit, :update, :destroy]
 
   def index
-    @newsitems = Newsitem.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
+    @newsitems = Newsitem.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
@@ -24,7 +24,7 @@ class NewsitemsController < ApplicationController
 
     respond_to do |format|
       if @newsitem.save
-        format.html { redirect_to @newsitem, notice: 'Newsitem was successfully created.' }
+        format.html { redirect_to newsitems_path, notice: 'Newsitem was successfully created.' }
         format.json { render action: 'show', status: :created, location: @newsitem }
       else
         format.html { render action: 'new' }
@@ -36,7 +36,7 @@ class NewsitemsController < ApplicationController
   def update
     respond_to do |format|
       if @newsitem.update(newsitem_params)
-        format.html { redirect_to @newsitem, notice: 'Newsitem was successfully updated.' }
+        format.html { redirect_to newsitems_path, notice: 'Newsitem was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

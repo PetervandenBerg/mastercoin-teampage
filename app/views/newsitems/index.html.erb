@@ -25,9 +25,6 @@
               <div class="post-description">
                 <p><%= raw markdown.render(newsitem.description) %></p>
               </div>
-              <div class="post-entry">
-                <%= link_to 'Read More...', newsitem_path(newsitem) %>
-              </div>
               <div class="post-meta">
                 <span><i class="mini-ico-calendar"></i><%= newsitem.created_at.to_s(:short) %></span>
                 <span><i class="mini-ico-user"></i>By <a href="#"><%= newsitem.user.name %></a></span>
