@@ -12,7 +12,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'kaminari'
 
 group :production do
-  gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
+  gem 'pg'
   gem 'rails_12factor'
 end
 
