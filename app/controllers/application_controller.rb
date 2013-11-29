@@ -11,4 +11,19 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password, :description, :job_description, :image, :linked_in, :kind) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password) }
   end
+
+  def authenticate_admin_user!
+    return @current_user if defined?(@current_user) && current_user.somekind_of_admin?      
+  end
+  
+  def require_some_admin
+    if current_user && current_user.somekind_of_admin?
+      return true
+    else
+      flash[:notice] = "You must be logged in to access this page"
+      redirect_to new_user_session_url
+      return false
+    end
+  end
+
 end

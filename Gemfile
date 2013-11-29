@@ -6,9 +6,10 @@ gem 'devise'
 gem 'simple_form', '3.0.0'
 gem 'paperclip'
 gem 'aws-sdk', '1.9.5'
-gem 'will_paginate', '~> 3.0'
 gem 'albino'
 gem 'redcarpet'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'kaminari'
 
 group :production do
 	gem 'pg'

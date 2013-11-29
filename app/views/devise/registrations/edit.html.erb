@@ -40,7 +40,7 @@
       </div>
 
       <div><%= f.label :kind %><br />
-      <%= f.select(:kind, [['Guest', 0], ['User', 1], ['Staff', 2]]) %></div>
+      <%= f.select(:kind, [['User', 'User'],['Staff', 'Staff'], ['Admin', 'Admin']]) %></div>
 
       <div><%= f.submit "Update" %></div>
     <% end %>

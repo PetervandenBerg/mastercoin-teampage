@@ -3,13 +3,13 @@ class BlogsController < ApplicationController
   before_filter :authenticate_user!, only: [:create, :update, :edit, :destroy]
 
   def index
-    @blogs = Blog.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 3)
+    @blogs = Blog.all.order('created_at DESC').page(params[:page]).per(3)
   end
 
   def show
     @commentable = @blog
     @comments = @commentable.comments
-    @comment = Comment.new
+    @comment = Comment.first
   end
 
   def new

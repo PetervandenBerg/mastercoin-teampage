@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   end
 
   def teampage
-    @users = User.all.where(kind: 2).paginate(:page => params[:page], :per_page => 15)
+    @users = User.all.where(kind: ["Staff", "Admin"]).page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb

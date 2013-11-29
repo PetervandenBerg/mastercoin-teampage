@@ -1,9 +1,9 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
 
   def index
-    @notifications = current_user.notifications.order('created_at DESC').paginate(:page => params[:page], :per_page => 10)
+    @notifications = current_user.notifications.order('created_at DESC').page(params[:page]).per(10)
   end
 
   def show

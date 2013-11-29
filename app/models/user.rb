@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
 
   has_many :messages, through: :notifications
   has_many :notifications
+
+  def somekind_of_admin?
+    if self.kind == "Admin"
+      return true
+    else 
+      return false
+    end
+  end 
 end

@@ -46,7 +46,7 @@
         <% end %>
         <%= button_to 'Create new Blog', new_blog_path, id: "comment_button", method: :get  %>
         <ul class="pagination">
-          <%= will_paginate @blogs %>
+          <%= paginate @blogs %>
         </ul>
 
       </div>

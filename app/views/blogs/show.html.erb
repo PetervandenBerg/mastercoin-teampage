@@ -46,41 +46,28 @@
 				
 				<hr>
 				
-				<div class="comments-sec">
+				<% if !@comments.empty? %>
+					<% @blog.comments.each do |comment|%>
+						<div class="post">
+	            <div class="post-content">
+	              <div class="post-title">
+	                <%= distance_of_time_in_words_to_now(comment.created_at) %> ago, <strong><%= comment.user.name %></strong> wrote:</h2>
+	              </div>
+	              <div class="post-description">
+	                <p><%= raw markdown.render(comment.content) %></p>
+	              </div>
+	              <div class="post-meta">
+	                <span><i class="mini-ico-calendar"></i><%= comment.created_at.to_s(:short) %></span>
+	                <span><i class="mini-ico-user"></i>By <a href="#"><%= comment.user.name %></a></span>
+	              </div>
+	              <br>
+	            </div>
+	          </div>
+	        <% end %>
 
-					<ol class="commentlist">
-					  <% if !@comments.empty? %>
-							<% @comments.each do |comment| %>
-							<li>
-								<div class="comments">
-									<% if comment.user.image.present? %>
-									<div class="avatar"><%= image_tag comment.user.image.url(:thumb) %></div>
-									<% else %>
-									<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" width="50" height="50" border="0"></div>
-									<% end %>
-									<div class="comment-des">
-									<div class="comment-by"><strong><%= comment.user.name %></strong><span class="reply"><span style="color:#aaa">/ </span><a href="#">Reply</a></span> <span class="date"><%= comment.created_at %></span></div>
-										<p><%= raw markdown.render(comment.content) %></p>
-									</div>
-								</div>
-
-								<ol class="childlist">
-									<li>
-										<div class="comments">
-										<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=50" alt="" border="0"> </div>
-										<div class="comment-des">
-										<div class="comment-by"><strong>Lucas Luck</strong><span class="reply"><span style="color:#aaa"></span></span><span class="date">June 1, 2012</span></div>
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-											</div>
-										</div>
-									</li>
-								</ol>		
-							</li>
-							<% end %>
-						<% else %>
-							This blog has no comments yet. Be the first to leave a comment.
-						<% end %>
-					 </ol>
+				<% else %>
+					This blog has no comments yet. Be the first to leave a comment.
+				<% end %>
 
 				</div>
 				<!-- end: Comments -->

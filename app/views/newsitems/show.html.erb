@@ -1,24 +1,78 @@
-<p id="notice"><%= notice %></p>
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>@newsitem.title</h2>
+    </div>
+  </div>  
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @newsitem.title %>
-</p>
+<div id="wrapper">
+  <div class="container">
+ 
+    <div class="row">
+      <div class="span9">
 
-<p>
-  <strong>Description:</strong>
-  <%= @newsitem.description %>
-</p>
+        <div class="post">
+          <div class="post-content">
+            <div class="post-description">
+              <p><%= raw markdown.render(@newsitem.description) %></p>
+            </div>
+            <div class="post-meta">
+              <span><i class="mini-ico-calendar"></i><%= @newsitem.created_at.to_s(:short) %></span>
+              <span><i class="mini-ico-user"></i>By <a href="#"><%= @newsitem.user.name %></a></span>
+              <span><i class="mini-ico-comment"></i>Comment(s)<%= @newsitem.comments.count %></span>
+              <span><div class="fb-share-button" data-href="http://mysterious-meadow-4454.herokuapp.com/newsitems" data-type="button"></div></span>
+            </div>
+          </div>
+        </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @newsitem.date %>
-</p>
+        <!-- start: Comments -->
+        <div class="title-out">
+          <h3>Comments <span class="comments-amount"><%= @newsitem.comments.count %></span></h3>
+        </div>
+        
+        <hr>
+        
+        <% if !@comments.empty? %>
+          <% @newsitem.comments.each do |comment|%>
+            <div class="post">
+              <div class="post-content">
+                <div class="post-title">
+                  <%= distance_of_time_in_words_to_now(comment.created_at) %> ago, <strong><%= comment.user.name %></strong> wrote:</h2>
+                </div>
+                <div class="post-description">
+                  <p><%= raw markdown.render(comment.content) %></p>
+                </div>
+                <div class="post-meta">
+                  <span><i class="mini-ico-calendar"></i><%= comment.created_at.to_s(:short) %></span>
+                  <span><i class="mini-ico-user"></i>By <a href="#"><%= comment.user.name %></a></span>
+                </div>
+                <br>
+              </div>
+            </div>
+          <% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @newsitem.user_id %>
-</p>
+        <% else %>
+          This blog has no comments yet. Be the first to leave a comment.
+        <% end %>
+        <!-- end: Comments -->
+        <div class="clear"></div>
+        
+        <hr>
 
-<%= link_to 'Edit', edit_newsitem_path(@newsitem) %> |
-<%= link_to 'Back', newsitems_path %>
+        <div class="title-out">
+          <h3>Leave a Comment</h3>
+        </div>
+        <hr>
+        <%= render 'comments/form' %>
+        <hr>
+
+
+      </div>
+    </div>
+    <%= link_to 'Edit', edit_newsitem_path(@newsitem) %> |
+    <%= link_to 'Back', newsitems_path %>    
+  </div>
+</div>    
+
+

@@ -28,8 +28,8 @@
               <div class="post-meta">
                 <span><i class="mini-ico-calendar"></i><%= newsitem.created_at.to_s(:short) %></span>
                 <span><i class="mini-ico-user"></i>By <a href="#"><%= newsitem.user.name %></a></span>
-                <span><i class="mini-ico-comment"></i>Comment(s)<%= newsitem.comments.count %></span>
-                <span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
+                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to newsitem.comments.count, newsitem_path(newsitem) %></span>
+                <span><div class="fb-share-button" data-href="http://mysterious-meadow-4454.herokuapp.com/newsitems" data-type="button"></div></span>
               </div>
             </div>
 
@@ -37,7 +37,7 @@
         <% end %>
         <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
         <ul class="pagination">
-          <%= will_paginate @newsitems %>
+          <%= paginate @newsitems %>
         </ul>
 
       </div>

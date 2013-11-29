@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
   before_filter :load_commentable
+  before_filter :authenticate_user!
 
   def index
     @comments = @commentable.comments
   end
 
   def show
-    @comment = @commentable.comment(@commentable)
+    @comment = @commentable
   end
 
   def new

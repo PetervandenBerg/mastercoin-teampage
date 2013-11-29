@@ -1,20 +1,27 @@
 Teampage::Application.routes.draw do
 
-  get "contact/new"
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   resources :messages do
     resources :comments
   end
   
   resources :notifications
 
-  resources :newsitems
+  resources :newsitems do 
+    resources :comments
+  end
 
-  devise_for :admins
   devise_for :users
 
   resources :resources
   
   resources :users 
+
+  resources :comments do
+    resources :comments
+  end
 
   resources :blogs do
     resources :comments do
@@ -23,7 +30,7 @@ Teampage::Application.routes.draw do
   end
 
 
- 
+  get "contact/new"
   get "pages/home"
   get "pages/features"
   get "pages/contact"

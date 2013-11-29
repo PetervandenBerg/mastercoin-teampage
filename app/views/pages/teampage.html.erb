@@ -47,10 +47,9 @@
         </div>
       <% end %>
       <hr>
-      <%= button_to 'Add new User', new_user_path, id: "comment_button", method: :get  %>
     </div>
 
-  <div id="pagination"><%= will_paginate @users %></div>  
+  <div id="pagination"><%= paginate @users %></div>  
 
   <hr>        
 
