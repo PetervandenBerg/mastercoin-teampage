@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 gem 'devise'
 gem 'simple_form', '3.0.0'
-gem 'paperclip', '~> 3.0'
+gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
 gem 'aws-sdk', '1.9.5'
 gem 'albino'
 gem 'redcarpet'
@@ -12,12 +12,12 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'kaminari'
 
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
-	gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 # Use SCSS for stylesheets
