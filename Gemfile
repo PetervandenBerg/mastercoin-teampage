@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 gem 'devise'
 gem 'simple_form', '3.0.0'
-gem "paperclip", "~> 3.0"
+gem 'paperclip', '~> 3.0'
 gem 'aws-sdk', '1.9.5'
 gem 'albino'
 gem 'redcarpet'
