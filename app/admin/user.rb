@@ -10,7 +10,6 @@ ActiveAdmin.register User do
     column :job_description
     column :kind
     column :linked_in
-    column :image
 
     default_actions
   end

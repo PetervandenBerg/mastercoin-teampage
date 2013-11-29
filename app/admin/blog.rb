@@ -1,5 +1,5 @@
 ActiveAdmin.register Blog do
-  permit_params :title, :body, :user_id, :image
+  permit_params :title, :body, :user_id
   
   index do
     column :title
@@ -10,7 +10,6 @@ ActiveAdmin.register Blog do
       user = User.find(u.user_id)
       link_to user.name, admin_user_path(u.user_id)
     end 
-    column :image
     default_actions
   end
 

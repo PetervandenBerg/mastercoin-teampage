@@ -1,6 +1,5 @@
 ActiveAdmin.register Resource do
-  permit_params :title, :description, :user_id, :image
-  
+  permit_params :title, :description, :user_id
   index do
     column :title
     column :description do |description|
@@ -10,7 +9,6 @@ ActiveAdmin.register Resource do
       user = User.find(u.user_id)
       link_to user.name, admin_user_path(u.user_id)
     end 
-    column :image
 
     default_actions
   end
