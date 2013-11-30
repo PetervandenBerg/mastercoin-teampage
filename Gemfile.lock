@@ -73,7 +73,7 @@ GEM
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.3)
+    cocaine (0.5.0)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -203,6 +203,7 @@ DEPENDENCIES
   activeadmin!
   albino
   aws-sdk (= 1.9.5)
+  cocaine (= 0.5.0)
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
