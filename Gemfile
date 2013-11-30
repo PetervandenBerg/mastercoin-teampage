@@ -10,7 +10,7 @@ gem 'redcarpet'
 gem "activeadmin", github: "gregbell/active_admin", ref: "82ff48d51525bdf55c96e50d8650d45f2a6716ed"
 gem 'kaminari'
 gem "cocaine", "0.5.0"
-
+gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
 
 group :production do
   gem 'pg'
