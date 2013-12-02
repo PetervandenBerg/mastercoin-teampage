@@ -9,8 +9,7 @@ gem 'albino'
 gem 'redcarpet'
 gem "activeadmin", github: "gregbell/active_admin"
 gem 'kaminari'
-gem "cocaine", "0.5.0"
-gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 group :production do
   gem 'pg'
