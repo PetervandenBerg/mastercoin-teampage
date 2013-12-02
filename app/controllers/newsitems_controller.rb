@@ -1,6 +1,6 @@
 class NewsitemsController < ApplicationController
   before_action :set_newsitem, only: [:show, :edit, :update, :destroy]
-  before_filter :require_some_admin!, only: [:new, :create, :update, :edit, :destroy]
+  before_filter :require_some_admin, only: [:new, :create, :update, :edit, :destroy]
 
   def index
     @newsitems = Newsitem.all.order('created_at DESC').page(params[:page]).per(5)
