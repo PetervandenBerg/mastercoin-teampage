@@ -29,8 +29,11 @@
 						</div>
 						<div class="post-meta">
 							<span><i class="mini-ico-calendar"></i><%= @blog.created_at.to_s(:short) %></span>
-							<span><i class="mini-ico-user"></i>By <a href="#"><%= @blog.user.name %></a></span>
+							<span><i class="mini-ico-user"></i>By <%= link_to @blog.user.name, user_path(@blog.user) %></span>
 							<span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
+							<% if current_user && current_user.kind == "Admin" %>
+                <span><i class="mini-ico-user"></i><%= link_to 'Edit', edit_blog_path(@blog) %></span>
+              <% end %>
 						</div>
 					</div>
 				
@@ -58,7 +61,7 @@
 	              </div>
 	              <div class="post-meta">
 	                <span><i class="mini-ico-calendar"></i><%= comment.created_at.to_s(:short) %></span>
-	                <span><i class="mini-ico-user"></i>By <a href="#"><%= comment.user.name %></a></span>
+	                <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to comment.user.name, user_path(comment.user) %></a></span>
 	              </div>
 	              <br>
 	            </div>
@@ -68,8 +71,6 @@
 				<% else %>
 					This blog has no comments yet. Be the first to leave a comment.
 				<% end %>
-
-				</div>
 				<!-- end: Comments -->
 				
 				<div class="clear"></div>

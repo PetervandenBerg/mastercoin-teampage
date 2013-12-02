@@ -16,6 +16,7 @@
               <th>Name</th>
               <th>Description</th>
               <th>Job description</th>
+              <th>Kind</th>
             </tr>
             <% @users.each do |user| %>
               <tr>
@@ -26,6 +27,7 @@
                 <% else %> 
                   <td> Guest </td>
                 <% end %> 
+                <td><%= user.kind %></td>
               </tr>
             <% end %>
           </table>

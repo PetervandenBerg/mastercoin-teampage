@@ -54,7 +54,12 @@
 
     <% else %>
       <p>Theres no resources created just yet. </p>
-      <%= button_to 'Create new resource', new_resource_path, id: "comment_button", method: :get %>
+
+
+      <% if current_user && current_user.kind == "Admin" %>
+        <%= button_to 'Create new resource', new_resource_path, id: "comment_button", method: :get %>
+      <% end %>
+      
     <% end %>
 
     <hr>

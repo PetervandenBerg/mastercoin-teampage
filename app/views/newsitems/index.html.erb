@@ -27,15 +27,21 @@
               </div>
               <div class="post-meta">
                 <span><i class="mini-ico-calendar"></i><%= newsitem.created_at.to_s(:short) %></span>
-                <span><i class="mini-ico-user"></i>By <a href="#"><%= newsitem.user.name %></a></span>
-                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to newsitem.comments.count, newsitem_path(newsitem) %></span>
+                <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to newsitem.user.name, user_path(newsitem.user)  %></a></span>
+                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to newsitem.comments.count, newsitem_path(newsitem), method: :get %></span>
                 <span><div class="fb-share-button" data-href="http://mysterious-meadow-4454.herokuapp.com/newsitems" data-type="button"></div></span>
+                <% if current_user && current_user.kind == "Admin" %>
+                  <span><i class="mini-ico-user"></i><%= link_to 'Edit', edit_newsitem_path(newsitem) %></span>
+                <% end %>
               </div>
             </div>
 
           </div>
         <% end %>
-        <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
+
+        <% if current_user && current_user.kind == "Admin" %>
+          <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
+        <% end %> 
         <ul class="pagination">
           <%= paginate @newsitems %>
         </ul>

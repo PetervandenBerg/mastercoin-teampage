@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:create, :update, :edit, :destroy]
+  before_filter :authenticate_admin_user!, only: [:create, :update, :edit, :destroy]
 
   def index
     @blogs = Blog.all.order('created_at DESC').page(params[:page]).per(3)

@@ -19,9 +19,12 @@
             </div>
             <div class="post-meta">
               <span><i class="mini-ico-calendar"></i><%= @newsitem.created_at.to_s(:short) %></span>
-              <span><i class="mini-ico-user"></i>By <a href="#"><%= @newsitem.user.name %></a></span>
+              <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to @newsitem.user.name, user_path(@newsitem.user) %></a></span>
               <span><i class="mini-ico-comment"></i>Comment(s)<%= @newsitem.comments.count %></span>
               <span><div class="fb-share-button" data-href="http://mysterious-meadow-4454.herokuapp.com/newsitems" data-type="button"></div></span>
+              <% if current_user && current_user.kind == "Admin" %>
+                <span><i class="mini-ico-user"></i><%= link_to 'Edit', edit_newsitem_path(@newsitem) %></span>
+              <% end %>
             </div>
           </div>
         </div>
@@ -45,7 +48,7 @@
                 </div>
                 <div class="post-meta">
                   <span><i class="mini-ico-calendar"></i><%= comment.created_at.to_s(:short) %></span>
-                  <span><i class="mini-ico-user"></i>By <a href="#"><%= comment.user.name %></a></span>
+                  <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to comment.user.name, user_path(comment.user) %></a></span>
                 </div>
                 <br>
               </div>

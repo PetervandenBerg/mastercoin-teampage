@@ -39,8 +39,10 @@
         <%= f.file_field :image, class: "form-control" %>
       </div>
 
-      <div><%= f.label :kind %><br />
-      <%= f.select(:kind, [['User', 'User'],['Staff', 'Staff'], ['Admin', 'Admin']]) %></div>
+      <% if current_user.kind == "Admin" %>
+        <div><%= f.label :kind %><br />
+        <%= f.select(:kind, [['User', 'User'],['Staff', 'Staff'], ['Admin', 'Admin']]) %></div>
+      <% end %>
 
       <div><%= f.submit "Update" %></div>
     <% end %>

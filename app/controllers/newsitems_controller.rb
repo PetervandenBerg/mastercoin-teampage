@@ -1,7 +1,6 @@
 class NewsitemsController < ApplicationController
   before_action :set_newsitem, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
-
+  before_filter :authenticate_admin_user!, only: [:create, :update, :edit, :destroy]
 
   def index
     @newsitems = Newsitem.all.order('created_at DESC').page(params[:page]).per(5)
