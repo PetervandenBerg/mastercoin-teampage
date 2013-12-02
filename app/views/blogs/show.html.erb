@@ -43,49 +43,22 @@
 				<hr>
 				
 				<!-- start: Comments -->
-				<div class="title-out">
-					<h3>Comments <span class="comments-amount"><%= @blog.comments.count %></span></h3>
-				</div>
 				
-				<hr>
-				
-				<% if !@comments.empty? %>
-					<% @blog.comments.each do |comment|%>
-						<div class="post">
-	            <div class="post-content">
-	              <div class="post-title">
-	                <%= distance_of_time_in_words_to_now(comment.created_at) %> ago, <strong><%= comment.user.name %></strong> wrote:</h2>
-	              </div>
-	              <div class="post-description">
-	                <p><%= raw markdown.render(comment.content) %></p>
-	              </div>
-	              <div class="post-meta">
-	                <span><i class="mini-ico-calendar"></i><%= comment.created_at.to_s(:short) %></span>
-	                <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to comment.user.name, user_path(comment.user) %></a></span>
-	              </div>
-	              <br>
-	            </div>
-	          </div>
-	        <% end %>
+				<div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'mastercointeampage'; // required: replace example with your forum shortname
 
-				<% else %>
-					This blog has no comments yet. Be the first to leave a comment.
-				<% end %>
-				<!-- end: Comments -->
-				
-				<div class="clear"></div>
-				
-				<hr>
-
-				<div class="title-out">
-					<h3>Leave a Comment</h3>
-				</div>
-				<hr>
-				<%= render 'comments/form' %>
-				<hr>
-
-			</div>	
-
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    	</div>
 			<!-- start: Sidebar -->
 
 			<div class="span3 hidden-phone">

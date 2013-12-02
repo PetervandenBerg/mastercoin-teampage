@@ -7,9 +7,6 @@ class NewsitemsController < ApplicationController
   end
 
   def show
-    @commentable = @newsitem
-    @comments = @commentable.comments
-    @comment = Comment.new
   end
 
   def new

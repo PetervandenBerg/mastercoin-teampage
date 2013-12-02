@@ -37,7 +37,6 @@
               <div class="post-meta">
                 <span><i class="mini-ico-calendar"></i><%= blog.created_at.to_s(:short) %></span>
                 <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to blog.user.name, user_path(blog.user) %></a></span>
-                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to blog.comments.count, blog_path(blog) %></span>
                 <span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
                 <% if current_user && current_user.kind == "Admin" %>
                   <span><i class="mini-ico-user"></i><%= link_to 'Edit', edit_blog_path(blog) %></span>

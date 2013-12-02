@@ -25,10 +25,12 @@
               <div class="post-description">
                 <p><%= raw markdown.render(newsitem.description) %></p>
               </div>
+              <div class="post-entry">
+                <%= link_to 'Read More...', newsitem_path(newsitem), method: :get  %>
+              </div>
               <div class="post-meta">
                 <span><i class="mini-ico-calendar"></i><%= newsitem.created_at.to_s(:short) %></span>
                 <span><i class="mini-ico-user"></i>By <a href="#"><%= link_to newsitem.user.name, user_path(newsitem.user)  %></a></span>
-                <span><i class="mini-ico-comment"></i>Comment(s)<%= link_to newsitem.comments.count, newsitem_path(newsitem), method: :get %></span>
                 <span><div class="fb-share-button" data-href="http://mysterious-meadow-4454.herokuapp.com/newsitems" data-type="button"></div></span>
                 <% if current_user && current_user.kind == "Admin" %>
                   <span><i class="mini-ico-user"></i><%= link_to 'Edit', edit_newsitem_path(newsitem) %></span>
