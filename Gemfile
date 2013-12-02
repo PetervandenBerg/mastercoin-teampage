@@ -7,7 +7,7 @@ gem 'simple_form', '3.0.0'
 gem 'aws-sdk', '1.9.5'
 gem 'albino'
 gem 'redcarpet'
-gem "activeadmin", github: "gregbell/active_admin", ref: "82ff48d51525bdf55c96e50d8650d45f2a6716ed"
+gem "activeadmin", github: "gregbell/active_admin"
 gem 'kaminari'
 gem "cocaine", "0.5.0"
 gem 'paperclip', github: 'thoughtbot/paperclip', branch: 'rails-4'
