@@ -117,7 +117,9 @@
 
       <% else %>
         <p>Theres no news created just yet. </p>
-        <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
+        <% if current_user && current_user.kind == "Admin" %>
+          <%= button_to 'Create new newsitem', new_newsitem_path, id: "comment_button", method: :get  %>
+        <% end %>
       <% end %>
 
     </div>
