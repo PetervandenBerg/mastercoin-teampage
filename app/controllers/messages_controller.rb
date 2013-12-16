@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    @groups = Group.all.compact
   end
 
   def edit
@@ -28,6 +29,15 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+
+        Group.find(params[:message][:group_ids].reject(&:empty?)).each do |group|
+          group.users.each do |user|
+            unless user.messages.include?(@message)
+              Notification.create(user_id: user.id, message_id: @message.id)
+            end
+          end
+        end
+
         format.html { redirect_to user_path(current_user), notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: @message }
       else
@@ -67,6 +77,6 @@ class MessagesController < ApplicationController
     end
 
     def message_params
-      params.require(:message).permit(:title, :description, :user_id, user_ids: [])
+      params.require(:message).permit(:title, :description, :user_id, user_ids: [], group_ids: [])
     end
 end

@@ -10,6 +10,7 @@ gem 'redcarpet'
 gem "activeadmin", github: "gregbell/active_admin"
 gem 'kaminari'
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'tinymce-rails'
 
 group :production do
   gem 'pg'

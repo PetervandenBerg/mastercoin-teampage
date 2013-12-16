@@ -6,4 +6,7 @@ class Message < ActiveRecord::Base
   belongs_to :author, class_name: "User", foreign_key: :user_id
 
   accepts_nested_attributes_for :notifications
+
+  attr_accessor :group_ids
+
 end

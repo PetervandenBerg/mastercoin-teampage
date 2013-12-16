@@ -15,6 +15,9 @@ class User < ActiveRecord::Base
   has_many :messages, through: :notifications
   has_many :notifications
 
+  has_many :user_groups
+  has_many :groups, :through => :user_groups
+
   def somekind_of_admin?
     if self.kind == "Admin"
       return true
@@ -22,4 +25,5 @@ class User < ActiveRecord::Base
       return false
     end
   end 
+
 end
